@@ -33,7 +33,7 @@ Creating Custom model with TFOD (Faster-RCNN-Inception-v2-coco)
 * Any model weights can be downloaded from [TensorFlow 1 Detection Model Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf1_detection_zoo.md). Here, I have used **faster_rcnn_inception_v2_coco model** weights. 
 
 ### Downloading official Github repo of TF-1 OD: 
-If you 
+Refer to [TFOD_Installation&Object_Detection](https://github.com/manthanpatel98/TFOD_Installation-Object_Detection) If you are downloading this for first time because I have made several change in the **research folder** then follow below steps.
 
 ---
 
