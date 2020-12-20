@@ -37,7 +37,7 @@ If you
 ---
 
 ## **Steps to Follow**:
-**1>  Copy training, generate_tfrecord.py and xml_to_csv.py from [utils](https://github.com/manthanpatel98/Custom_Model_TFOD/tree/main/utils) and created images folder to research folder in models.**
+**1>  Copy training, generate_tfrecord.py and xml_to_csv.py from [utils](https://github.com/manthanpatel98/Custom_Model_TFOD/tree/main/utils), Downloaded pre-trained model folder and created images folder to research folder in models.**
 
 **2> Make changes in generate_tfrecord.py and labelmap.pbtxt according to your dataset.** (if you are using same dataset as mentioned then there is no need to change anything.)
 
@@ -45,10 +45,44 @@ If you
   
     python xml_to_csv.py
     
-**4> Convert csv to tfrecords for train and test dataset by executing following commands in anaconda propmt:**
+**4> Convert csv to tfrecords for train and test dataset by executing following commands in anaconda propmt:** This will create train.record & test.record in research folder. These files are faster in execution as compare to csv or xml.
 
     python generate_tfrecord.py --csv_input=images/train_labels.csv --image_dir=images/train --output_path=train.record
-	  python generate_tfrecord.py --csv_input=images/test_labels.csv --image_dir=images/test --output_path=test.record
+    python generate_tfrecord.py --csv_input=images/test_labels.csv --image_dir=images/test --output_path=test.record
+
+**5> Copy model's config file [\research\object_detection\samples\configs]** (depends on your model)  **to training & Make 7 Changes in config file:** Config file is the architectural file of the model that we are going to use in pre-training.
+
+* num_classes:
+* fine_tune_checkpoint: path to pretrained model (downloaded model) For that move your downloaded model folder to research
+* num_steps: Good to use Around 1000/5000 for learning, for project 50000, for production around 200000. (Here, we have used 1000)
+* train_input_reader: input_path: & label_map_path:
+* eval_input_reader: input_path: & label_map_path: 
+
+**6> To Start the training with need train.py, config file and labelmap.pbtxt:**
+* Copy/Move **train.py** [research\object_detection\legacy] to **research folder**.
+* Copy/Move **deployment** and **nets** folders from [\research\slim] to **research folder**.
+* Run Following code to start training:
+
+      python train.py --logtostderr --train_dir=training/ --pipeline_config_path=training/faster_rcnn_inception_v2_coco.config
+      
+* After training **ckpt files** will be generated in **training folder**.
+
+**7> Convert ckpt to PB (inference_graph):**
+* Copy/Move **export_inference_graph.py** [research\object_detection] from **object_detection** folder to **research** folder.
+* Run Following command for conversion:
+
+**Note:** Make sure to make a change in below code, specify your **model.ckpt-....** (num_steps that you want to consider) before executing.
+
+	  python export_inference_graph.py --input_type image_tensor --pipeline_config_path training/faster_rcnn_inception_v2_coco.config --trained_checkpoint_prefix training/model.ckpt-1000 --output_directory inference_graph
+	  
+## **Predicting Results:**
+
+* Open **"Object_Detection_tutorial.ipynb"** in jupyter notebook.
+
+* Make changes in Model Preparation as shown below:
+
+* Move some images to **object_detection\test_images** for testing and run cells for prediction.
+
 
 
 
