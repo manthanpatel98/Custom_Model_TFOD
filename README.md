@@ -39,11 +39,15 @@ If you
 ## **Steps to Follow**:
 **1>  Copy training, generate_tfrecord.py and xml_to_csv.py from [utils](https://github.com/manthanpatel98/Custom_Model_TFOD/tree/main/utils), Downloaded pre-trained model folder and created images folder to research folder in models.**
 
-**2> Make changes in generate_tfrecord.py and labelmap.pbtxt according to your dataset.** (if you are using same dataset as mentioned then there is no need to change anything.)
+**2> Make changes in generate_tfrecord.py and labelmap.pbtxt according to your dataset.** (if you are using same dataset as mentioned then there is no need to change.)
 
-**3> In Anaconda prompt goto research folder and convert .xml to .csv:** This will aggregate all xml files into single csv. This will create train_labels & test_labels in images folder.
+**3> In Anaconda prompt goto research folder and convert .xml to .csv:** This will aggregate all xml files into single csv. 
   
     python xml_to_csv.py
+    
+* This will create train_labels & test_labels in images folder.
+
+<img src="https://github.com/manthanpatel98/Custom_Model_TFOD/blob/main/Custom_TFOD_images/Screenshot%20(333).png" width=650>
     
 **4> Convert csv to tfrecords for train and test dataset by executing following commands in anaconda propmt:** This will create train.record & test.record in research folder. These files are faster in execution as compare to csv or xml.
 
@@ -52,11 +56,19 @@ If you
 
 **5> Copy model's config file [\research\object_detection\samples\configs]** (depends on your model)  **to training & Make 7 Changes in config file:** Config file is the architectural file of the model that we are going to use in pre-training.
 
-* num_classes:
-* fine_tune_checkpoint: path to pretrained model (downloaded model) For that move your downloaded model folder to research
-* num_steps: Good to use Around 1000/5000 for learning, for project 50000, for production around 200000. (Here, we have used 1000)
-* train_input_reader: input_path: & label_map_path:
-* eval_input_reader: input_path: & label_map_path: 
+*  **num_classes:** No. of classes 
+
+<img src="https://github.com/manthanpatel98/Custom_Model_TFOD/blob/main/Custom_TFOD_images/Screenshot%20(334).png" width=650>
+
+*  **fine_tune_checkpoint:** path to pretrained model (downloaded model) folder For that move your downloaded model folder to research
+
+<img src="https://github.com/manthanpatel98/Custom_Model_TFOD/blob/main/Custom_TFOD_images/Screenshot%20(335).png" width=650>
+
+*  **num_steps:** Good to use Around 1000/5000 for learning, for project 50000, for production around 200000. **(Here, I have used 1000)**
+*  **train_input_reader:** ==> **input_path: & label_map_path:**
+*  **eval_input_reader:** ==> **input_path: & label_map_path:** 
+
+<img src="https://github.com/manthanpatel98/Custom_Model_TFOD/blob/main/Custom_TFOD_images/Screenshot%20(336).png" width=650>
 
 **6> To Start the training with need train.py, config file and labelmap.pbtxt:**
 * Copy/Move **train.py** [research\object_detection\legacy] to **research folder**.
@@ -64,6 +76,12 @@ If you
 * Run Following code to start training:
 
       python train.py --logtostderr --train_dir=training/ --pipeline_config_path=training/faster_rcnn_inception_v2_coco.config
+      
+
+* Here, I have got good **loss around 0.08**.
+
+<img src="https://github.com/manthanpatel98/Custom_Model_TFOD/blob/main/Custom_TFOD_images/Screenshot%20(323).png" width=650>
+      
       
 * After training **ckpt files** will be generated in **training folder**.
 
@@ -80,6 +98,8 @@ If you
 * Open **"Object_Detection_tutorial.ipynb"** in jupyter notebook.
 
 * Make changes in Model Preparation as shown below:
+
+<img src="https://github.com/manthanpatel98/Custom_Model_TFOD/blob/main/Custom_TFOD_images/Screenshot%20(337).png" width=650>
 
 * Move some images to **object_detection\test_images** for testing and run cells for prediction.
 
