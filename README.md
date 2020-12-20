@@ -24,6 +24,7 @@ Creating Custom model with TFOD (Faster-RCNN-Inception-v2-coco)
 * Form folder structure as **images** ==> **train and test folders**.
 * For this example project, you can use [Fruit OD Dataset](https://www.kaggle.com/mbkinaci/fruit-images-for-object-detection) from [Kaggle](https://www.kaggle.com/).
 * Here, there are **240 images** in **train folder** and **60 images** in **test folder** which is **not a desirable number for an object detection project** but it is **sufficient for learning how to develop custom models**.
+* Dataset has **3 classes:** apple, orange and banana.
 * Make sure that **number of images is same as annotated files**.
 
 
@@ -93,6 +94,10 @@ If you
 
 	  python export_inference_graph.py --input_type image_tensor --pipeline_config_path training/faster_rcnn_inception_v2_coco.config --trained_checkpoint_prefix training/model.ckpt-1000 --output_directory inference_graph
 	  
+
+---
+
+
 ## **Predicting Results:**
 
 * Open **"Object_Detection_tutorial.ipynb"** in jupyter notebook.
@@ -102,6 +107,24 @@ If you
 <img src="https://github.com/manthanpatel98/Custom_Model_TFOD/blob/main/Custom_TFOD_images/Screenshot%20(337).png" width=650>
 
 * Move some images to **object_detection\test_images** for testing and run cells for prediction.
+
+### **Results:**
+
+
+<img src="https://github.com/manthanpatel98/Custom_Model_TFOD/blob/main/Custom_TFOD_images/img1.png" width=400>
+
+
+<img src="https://github.com/manthanpatel98/Custom_Model_TFOD/blob/main/Custom_TFOD_images/img6.png" width=400>
+
+
+<img src="https://github.com/manthanpatel98/Custom_Model_TFOD/blob/main/Custom_TFOD_images/img7.png" width=400>
+
+
+<img src="https://github.com/manthanpatel98/Custom_Model_TFOD/blob/main/Custom_TFOD_images/img9.png" width=400>
+
+
+* Model can be trained for **more num_steps** & with **more images** to increase the accuracy.
+
 
 
 
