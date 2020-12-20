@@ -5,7 +5,7 @@ Creating Custom model with TFOD (Faster-RCNN-Inception-v2-coco)
 
 
 ## **3 initial steps required:**
-* **Creating Dataset with Annotation files** (.xml for TFOD) [**utils**](
+* **Creating Dataset with Annotation files** (.xml for TFOD) 
 * **Downloading Pre-Trained Model weights from [TensorFlow 1 Detection Model Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf1_detection_zoo.md)**
 * **Downloading official Github repo of TF-1 OD:** https://github.com/tensorflow/models/tree/v1.13.0
 
