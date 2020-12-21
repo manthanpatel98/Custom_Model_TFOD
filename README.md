@@ -20,7 +20,7 @@ Creating Custom model with TFOD (Faster-RCNN-Inception-v2-coco)
 
 
 ### **Dataset:**
-* Devide the Dataset in 80%-20% train-test or in any other acceptable ratio.
+* Divide the Dataset in 80%-20% train-test or in any other acceptable ratio.
 * Form folder structure as **images** ==> **train and test folders**.
 * For this example project, you can use [Fruit OD Dataset](https://www.kaggle.com/mbkinaci/fruit-images-for-object-detection) from [Kaggle](https://www.kaggle.com/).
 * Here, there are **240 images** in **train folder** and **60 images** in **test folder** which is **not a desirable number for an object detection project** but it is **sufficient for learning how to develop custom models**.
@@ -29,10 +29,10 @@ Creating Custom model with TFOD (Faster-RCNN-Inception-v2-coco)
 
 
 
-### **Downloading Pre-Trained Model weights:**
+## **Downloading Pre-Trained Model weights:**
 * Any model weights can be downloaded from [TensorFlow 1 Detection Model Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf1_detection_zoo.md). Here, I have used **faster_rcnn_inception_v2_coco model** weights. 
 
-### Downloading official Github repo of TF-1 OD: 
+## Downloading official Github repo of TF-1 OD: 
 Refer to [TFOD_Installation&Object_Detection](https://github.com/manthanpatel98/TFOD_Installation-Object_Detection) If you are downloading this for first time because I have made several change in the **research folder** then follow below steps.
 
 ---
