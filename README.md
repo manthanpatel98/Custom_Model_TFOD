@@ -2,7 +2,7 @@
 Creating Custom model with TFOD (Faster-RCNN-Inception-v2-coco)
 
 #### For TFOD installation follow github repo [TFOD_Installation&Object_Detection](https://github.com/manthanpatel98/TFOD_Installation-Object_Detection)
-
+You can visit my [blog](https://inblog.in/Building-Custom-TFOD-Model-g575FfnYE5) on Building Custom TFOD Model.
 
 ## **3 initial steps required:**
 * **Creating Dataset with Annotation files** (.xml for TFOD) 
